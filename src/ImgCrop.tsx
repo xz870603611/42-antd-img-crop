@@ -303,24 +303,29 @@ const ImgCrop = forwardRef<CropperRef, ImgCropProps>((props, cropperRef) => {
           onOk={onOk.current}
           wrapClassName={wrapClassName}
           maskClosable={false}
+          maskTransitionName=""
+          transitionName=""
           destroyOnClose
+          style={{ position: 'relative', height: 380 }}
         >
-          <EasyCrop
-            ref={easyCropRef}
-            cropperRef={cropperRef}
-            zoomSlider={zoomSlider}
-            rotationSlider={rotationSlider}
-            aspectSlider={aspectSlider}
-            showReset={showReset}
-            resetBtnText={resetBtnText}
-            modalImage={modalImage}
-            aspect={aspect}
-            minZoom={minZoom}
-            maxZoom={maxZoom}
-            cropShape={cropShape}
-            showGrid={showGrid}
-            cropperProps={cropperProps}
-          />
+          {modalImage && (
+            <EasyCrop
+              ref={easyCropRef}
+              cropperRef={cropperRef}
+              zoomSlider={zoomSlider}
+              rotationSlider={rotationSlider}
+              aspectSlider={aspectSlider}
+              showReset={showReset}
+              resetBtnText={resetBtnText}
+              modalImage={modalImage}
+              aspect={aspect}
+              minZoom={minZoom}
+              maxZoom={maxZoom}
+              cropShape={cropShape}
+              showGrid={showGrid}
+              cropperProps={cropperProps}
+            />
+          )}
         </AntModal>
       )}
     </>
